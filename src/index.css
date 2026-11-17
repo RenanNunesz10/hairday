@@ -45,7 +45,8 @@ button {
 }
 
 /* Tipografia do Figma */
-.title-lg { font-size: 32px; line-height: 24px; font-weight: 700; }
+/* Figma usa 24px de line-height; 1.25 evita sobreposição quando o título quebra linha */
+.title-lg { font-size: 32px; line-height: 1.25; font-weight: 700; }
 .title-md { font-size: 16px; line-height: 24px; font-weight: 700; }
 .title-sm { font-size: 14px; line-height: 20px; font-weight: 700; }
 .text-md { font-size: 16px; line-height: 24px; font-weight: 400; }

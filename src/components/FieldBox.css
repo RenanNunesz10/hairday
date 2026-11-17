@@ -1,0 +1,38 @@
+/* "Caixa" compartilhada pelos campos de data e de texto */
+.field-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--gray-500);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.field-box:focus-within {
+  border-color: var(--yellow);
+}
+
+.field-box__icon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--yellow);
+  pointer-events: none;
+}
+
+.field-box input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--gray-200);
+  color-scheme: dark;
+}
+
+.field-box input::placeholder {
+  color: var(--gray-400);
+}

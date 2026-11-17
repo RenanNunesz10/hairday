@@ -1,0 +1,24 @@
+.button {
+  width: 100%;
+  height: 56px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: var(--yellow);
+  color: var(--gray-900);
+  text-transform: uppercase;
+  transition: border-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--yellow-light);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--yellow-light);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

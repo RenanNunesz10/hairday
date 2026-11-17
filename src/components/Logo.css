@@ -1,0 +1,19 @@
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 12px 20px;
+  background-color: var(--gray-600);
+  border-radius: 12px 0 12px 0;
+  color: var(--yellow);
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.logo__icon {
+  transform: rotate(-20deg);
+}

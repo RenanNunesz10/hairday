@@ -1,0 +1,40 @@
+.period {
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+}
+
+.period__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--gray-600);
+}
+
+.period__header > span {
+  color: var(--gray-400);
+}
+
+.period__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--yellow);
+}
+
+.period__title h2 {
+  color: var(--gray-300);
+}
+
+.period__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  list-style: none;
+}
+
+.period__empty {
+  padding: 20px;
+  color: var(--gray-400);
+}

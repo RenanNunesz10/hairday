@@ -1,0 +1,29 @@
+.time-slot {
+  height: 40px;
+  border: 1px solid var(--gray-500);
+  border-radius: 8px;
+  background-color: var(--gray-600);
+  color: var(--gray-200);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.time-slot:hover:not(:disabled) {
+  background-color: var(--gray-500);
+}
+
+.time-slot:focus-visible {
+  outline: 2px solid var(--yellow-light);
+  outline-offset: 2px;
+}
+
+.time-slot--selected {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.time-slot:disabled {
+  background-color: transparent;
+  border-color: var(--gray-600);
+  color: var(--gray-500);
+  cursor: not-allowed;
+}

@@ -1,0 +1,32 @@
+.sidebar {
+  position: relative;
+  flex-shrink: 0;
+  width: 498px;
+  padding: 92px 80px 48px;
+  border-radius: 12px;
+  background-color: var(--gray-700);
+}
+
+.sidebar__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 28px;
+}
+
+.sidebar__header h1 {
+  /* no frame do Figma os títulos aparecem com 24px */
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--gray-100);
+}
+
+.sidebar__header p {
+  color: var(--gray-300);
+}
+
+@media (max-width: 960px) {
+  .sidebar {
+    width: 100%;
+    padding: 84px 24px 32px;
+  }}

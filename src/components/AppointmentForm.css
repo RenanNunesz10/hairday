@@ -1,0 +1,39 @@
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field > .title-md {
+  color: var(--gray-200);
+}
+
+.time-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.time-group + .time-group {
+  margin-top: 4px;
+}
+
+.time-group > .text-sm {
+  color: var(--gray-300);
+}
+
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.appointment-form .button {
+  margin-top: 8px;
+}

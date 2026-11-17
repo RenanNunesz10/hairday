@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+  padding: 12px;
+}
+
+@media (max-width: 960px) {
+  .app {
+    flex-direction: column;
+  }
+}
