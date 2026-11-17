@@ -1,15 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Appointment, NewAppointment } from './types/appointment'
 import { getToday } from './utils/date'
+import { loadAppointments, saveAppointments } from './utils/storage'
 import { AppointmentList } from './components/AppointmentList'
 import { ScheduleSidebar } from './components/ScheduleSidebar'
 import './App.css'
 
 function App() {
-  // Lista com todos os agendamentos (começa vazia).
-  const [appointments, setAppointments] = useState<Appointment[]>([])
+  // Lista com todos os agendamentos.
+  // Passamos uma FUNÇÃO para o useState: ela só roda na primeira renderização
+  // e carrega o que estava salvo no localStorage.
+  const [appointments, setAppointments] = useState<Appointment[]>(loadAppointments)
   // Data exibida na agenda (lado direito).
   const [selectedDate, setSelectedDate] = useState(getToday())
+
+  // Sempre que a lista mudar (cadastro ou exclusão), salva no localStorage.
+  useEffect(() => {
+    saveAppointments(appointments)
+  }, [appointments])
 
   function handleAddAppointment(data: NewAppointment) {
     const newAppointment: Appointment = {
@@ -31,7 +39,7 @@ function App() {
 
   return (
     <div className="app">
-      <ScheduleSidebar onAddAppointment={handleAddAppointment} />
+      <ScheduleSidebar appointments={appointments} onAddAppointment={handleAddAppointment} />
       <AppointmentList
         appointments={appointments}
         selectedDate={selectedDate}
