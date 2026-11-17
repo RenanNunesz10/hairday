@@ -8,9 +8,15 @@ type AppointmentListProps = {
   appointments: Appointment[]
   selectedDate: string
   onDateChange: (date: string) => void
+  onDeleteAppointment: (id: string) => void
 }
 
-export function AppointmentList({ appointments, selectedDate, onDateChange }: AppointmentListProps) {
+export function AppointmentList({
+  appointments,
+  selectedDate,
+  onDateChange,
+  onDeleteAppointment,
+}: AppointmentListProps) {
   // filter + sort + reduce: { morning: [...], afternoon: [...], night: [...] }
   const groups = groupAppointmentsByPeriod(appointments, selectedDate)
 
@@ -31,7 +37,12 @@ export function AppointmentList({ appointments, selectedDate, onDateChange }: Ap
 
       <div className="agenda__periods">
         {PERIODS.map((period) => (
-          <PeriodSection key={period.id} period={period} appointments={groups[period.id]} />
+          <PeriodSection
+            key={period.id}
+            period={period}
+            appointments={groups[period.id]}
+            onDeleteAppointment={onDeleteAppointment}
+          />
         ))}
       </div>
     </section>

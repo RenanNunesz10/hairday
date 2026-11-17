@@ -24,6 +24,11 @@ function App() {
     setSelectedDate(data.date)
   }
 
+  function handleDeleteAppointment(id: string) {
+    // filter() devolve um NOVO array sem o item com esse id.
+    setAppointments((current) => current.filter((appointment) => appointment.id !== id))
+  }
+
   return (
     <div className="app">
       <ScheduleSidebar onAddAppointment={handleAddAppointment} />
@@ -31,6 +36,7 @@ function App() {
         appointments={appointments}
         selectedDate={selectedDate}
         onDateChange={setSelectedDate}
+        onDeleteAppointment={handleDeleteAppointment}
       />
     </div>
   )

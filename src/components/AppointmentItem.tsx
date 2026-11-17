@@ -4,9 +4,10 @@ import './AppointmentItem.css'
 
 type AppointmentItemProps = {
   appointment: Appointment
+  onDelete: (id: string) => void
 }
 
-export function AppointmentItem({ appointment }: AppointmentItemProps) {
+export function AppointmentItem({ appointment, onDelete }: AppointmentItemProps) {
   return (
     <li className="appointment-item">
       <strong className="title-md">{appointment.time}</strong>
@@ -15,6 +16,8 @@ export function AppointmentItem({ appointment }: AppointmentItemProps) {
         type="button"
         className="appointment-item__delete"
         aria-label={`Excluir agendamento de ${appointment.clientName} às ${appointment.time}`}
+        title="Excluir agendamento"
+        onClick={() => onDelete(appointment.id)}
       >
         <TrashIcon size={18} />
       </button>

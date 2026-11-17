@@ -14,9 +14,10 @@ const PERIOD_ICONS: Record<PeriodId, ComponentType> = {
 type PeriodSectionProps = {
   period: Period
   appointments: Appointment[]
+  onDeleteAppointment: (id: string) => void
 }
 
-export function PeriodSection({ period, appointments }: PeriodSectionProps) {
+export function PeriodSection({ period, appointments, onDeleteAppointment }: PeriodSectionProps) {
   const Icon = PERIOD_ICONS[period.id]
 
   return (
@@ -38,7 +39,11 @@ export function PeriodSection({ period, appointments }: PeriodSectionProps) {
       ) : (
         <ul className="period__list">
           {appointments.map((appointment) => (
-            <AppointmentItem key={appointment.id} appointment={appointment} />
+            <AppointmentItem
+              key={appointment.id}
+              appointment={appointment}
+              onDelete={onDeleteAppointment}
+            />
           ))}
         </ul>
       )}
