@@ -1,27 +1,34 @@
 import { useState } from 'react'
-import type { Appointment } from './types/appointment'
+import type { Appointment, NewAppointment } from './types/appointment'
 import { getToday } from './utils/date'
 import { AppointmentList } from './components/AppointmentList'
 import { ScheduleSidebar } from './components/ScheduleSidebar'
 import './App.css'
 
-// Dados de exemplo só para visualizar a interface.
-// Na etapa 4 eles serão substituídos por um useState<Appointment[]>.
-const SAMPLE_APPOINTMENTS: Appointment[] = [
-  { id: '1', clientName: 'Ryan Dorwart', date: getToday(), time: '11:00' },
-  { id: '2', clientName: 'Livia Curtis', date: getToday(), time: '13:00' },
-  { id: '3', clientName: 'Randy Calzoni', date: getToday(), time: '14:00' },
-]
-
 function App() {
+  // Lista com todos os agendamentos (começa vazia).
+  const [appointments, setAppointments] = useState<Appointment[]>([])
   // Data exibida na agenda (lado direito).
   const [selectedDate, setSelectedDate] = useState(getToday())
 
+  function handleAddAppointment(data: NewAppointment) {
+    const newAppointment: Appointment = {
+      id: crypto.randomUUID(),
+      ...data,
+    }
+
+    // Nunca usamos push(): criamos um NOVO array com o item no final.
+    setAppointments((current) => [...current, newAppointment])
+
+    // Mostra na agenda o dia que acabou de ser agendado.
+    setSelectedDate(data.date)
+  }
+
   return (
     <div className="app">
-      <ScheduleSidebar />
+      <ScheduleSidebar onAddAppointment={handleAddAppointment} />
       <AppointmentList
-        appointments={SAMPLE_APPOINTMENTS}
+        appointments={appointments}
         selectedDate={selectedDate}
         onDateChange={setSelectedDate}
       />

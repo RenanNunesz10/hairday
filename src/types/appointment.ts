@@ -6,6 +6,10 @@ export type Appointment = {
   time: string // formato "HH:00"
 }
 
+// Dados que o formulário envia: tudo do Appointment, menos o id
+// (o id é criado no App, na hora de salvar).
+export type NewAppointment = Omit<Appointment, 'id'>
+
 // Os três períodos do dia exibidos na agenda.
 export type PeriodId = 'morning' | 'afternoon' | 'night'
 

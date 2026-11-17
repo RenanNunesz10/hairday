@@ -1,8 +1,13 @@
+import type { NewAppointment } from '../types/appointment'
 import { AppointmentForm } from './AppointmentForm'
 import { Logo } from './Logo'
 import './ScheduleSidebar.css'
 
-export function ScheduleSidebar() {
+type ScheduleSidebarProps = {
+  onAddAppointment: (data: NewAppointment) => void
+}
+
+export function ScheduleSidebar({ onAddAppointment }: ScheduleSidebarProps) {
   return (
     <aside className="sidebar">
       <Logo />
@@ -14,7 +19,8 @@ export function ScheduleSidebar() {
         </p>
       </header>
 
-      <AppointmentForm />
+      {/* A sidebar só repassa a função do App para o formulário */}
+      <AppointmentForm onSubmit={onAddAppointment} />
     </aside>
   )
 }

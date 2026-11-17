@@ -37,3 +37,11 @@
 .appointment-form .button {
   margin-top: 8px;
 }
+
+.form-error {
+  margin-bottom: -16px;
+  padding: 12px 16px;
+  border: 1px solid var(--yellow-dark);
+  border-radius: 8px;
+  color: var(--yellow-light);
+}
